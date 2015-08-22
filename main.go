@@ -24,13 +24,15 @@ func indexHandler(c *gin.Context) {
 
 	_, err := dbmap.Select(&messages, "SELECT * FROM messages")
 
+	var obj interface{}
+
 	if err != nil || len(messages) == 0 {
-		obj := gin.H{"error": "No message in the database"}
-		c.HTML(200, "index.html", obj)
+		obj = gin.H{"error": "No message in the database"}
 	} else {
-		obj := gin.H{"title": messages}
-		c.HTML(200, "index.html", obj)
+		obj = gin.H{"title": messages}
 	}
+
+	c.HTML(200, "index.html", obj)
 }
 
 func postHandler(c *gin.Context) {
