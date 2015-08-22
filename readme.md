@@ -1,7 +1,8 @@
 ## About
 
 With this minimalist todolist, you can post / delete a message.  
-Built with the help of three library below :
+Built with the help of three library below:
+
 - Gin-Gonic (micro framework) 
 - Gorp (ORM) 
 - SQL Driver
@@ -9,15 +10,22 @@ Built with the help of three library below :
 
 ## Installation
 
-Install each library :  
-<code>go get github.com/gin-gonic/gin</code>  
-<code>go get gopkg.in/gorp.v1</code>  
-<code>go get github.com/go-sql-driver/mysql</code>  
+Install each library:
+
+- `go get github.com/gin-gonic/gin`
+- `go get gopkg.in/gorp.v1`
+- `go get github.com/go-sql-driver/mysql`
 
 Then, create a new database "todolist" in your MySQL / MariaDB server :
 
 ```sql
 CREATE DATABASE IF NOT EXISTS todolist;
+```
+
+You can change the database name in the DSN ("db/db.go"):
+
+```sql
+db, err := sql.Open("mysql", "login:password@/dbname")
 ```
 
 
